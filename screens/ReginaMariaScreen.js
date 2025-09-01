@@ -8,7 +8,9 @@ import {
   TouchableOpacity,
   Animated,
 } from 'react-native';
+import { Image as ExpoImage } from 'expo-image';
 import RomaniaPuzzle from './RomaniaPuzzle';
+import { s, vs, ms } from '../utils/scale';
 
 export default function PaleoliticScreen({ navigation }) {
   const [currentLine, setCurrentLine] = useState(0);
@@ -47,19 +49,19 @@ export default function PaleoliticScreen({ navigation }) {
   }, [showIntro]);
 
   const professorLines = [
-    'Vei avea nevoie de ajutor pentru a înțelege intamplarile din Primul Razboi Mondial',
-    'Ea este Regina Maria a Romaniei, sotia regelui Ferdinand I și te va ajuta sa intelegi istoria Romaniei in timpurile grele ale razboiului.',
-    'Acum poți vorbi cu Regina Maria. De abia așteaptă să te cunoască.(Tip: Daca apesi pe unele personaje, aceste vor incepe sa se miste.)',
+    'Vei avea nevoie de ajutor pentru a înțelege întâmplările din Primul Război Mondial.',
+    'Ea este Regina Maria a României, soția regelui Ferdinand I și te va ajuta să înțelegi istoria României în timpurile grele ale războiului.',
+    'Acum poți vorbi cu Regina Maria. De abia așteaptă să te cunoască. (Apasă pe ea pentru a începe conversația)',
   ];
 
   const lucyLines = [
-    'Romania era o zona de interes prin pozitia sa geografica si a resurselor de cereale si petrol. Asa ca in 1914 anbele tabere o voiau de partea lor. ',
-    'Romania a ramas neutra pana in 1916, cand a declarat razboi Austro-Ungariei, intrand in lupta de partea Antantei.',
-    'Insa Romania a suferit pierderi majore, o mare parte din aceasta, inclusiv capitala,fiind ocupate.',
-    'Iti pot arata o harta cu tara dezbinata. Crezi ca poti uni Romania?',
-    'In realitate, unirea de la 1918 a fost mult mai greu de obtinut. Actul de unire a fost rezultatul unor negocieri complexe si a implicat multiple aspecte politice, sociale si economice. Unirea s a intocmit chiar in aceasta sala, in Alba Iulia',
-    'Dar nimic din toate astea nu se putea intampla fara curajul soldatilor care in 1917 au obtinut victorii importante la Marasti, Marasesti si Oituz. Eu am contribuit enorm la ridicarea moralului soldatilor. Apasa pe filmul din spatele meu pentru a vedea.',
-    'Sunt incantata ca te-am cunoscut! Sper ca ai inteles cum a afectat Primul Razboi Mondial Romania. Acum vrei sa vezi cum s a desfasurat in intreaga lume?',
+    'România era o zonă de interes prin poziția sa geografică și a resurselor de cereale și petrol. Așa că în 1914 ambele tabere o voiau de partea lor.',
+    'România a rămas neutră până în 1916, când a declarat război Austro-Ungariei, intrând în luptă de partea Antantei.',
+    'Însă România a suferit pierderi majore, o mare parte din aceasta, inclusiv capitala, fiind ocupate.',
+    'Îți pot arăta o hartă cu țara dezbinată. Crezi că poți uni România?',
+    'În realitate, unirea de la 1918 a fost mult mai greu de obținut. Actul de unire a fost rezultatul unor negocieri complexe și a implicat multiple aspecte politice, sociale și economice. Unirea s-a întocmit chiar în această sală, în Alba Iulia.',
+    'Dar nimic din toate acestea nu se putea întâmpla fără curajul soldaților care în 1917 au obținut victorii importante la Mărăști, Mărășești și Oituz. Eu am contribuit enorm la ridicarea moralului soldaților. Apasă pe filmul din spatele meu pentru a vedea.',
+    'Sunt încântată că te-am cunoscut! Sper că ai înțeles cum a afectat Primul Război Mondial România. Acum vrei să vezi cum s-a desfășurat în întreaga lume?',
   ];
 
   const mirrorLines = [
@@ -141,10 +143,10 @@ export default function PaleoliticScreen({ navigation }) {
           style={styles.mirrorFullScreen}
           resizeMode="contain"
         >
-          <Image
+          <ExpoImage
             source={require('../assets/film.gif')}
             style={styles.insideMirrorImage}
-            resizeMode="contain"
+            contentFit="contain"
           />
           <TouchableOpacity style={styles.closeMirrorButton} onPress={toggleMirrorView}>
             <Text style={styles.closeText}>Închide</Text>
@@ -166,15 +168,19 @@ export default function PaleoliticScreen({ navigation }) {
           </View>
 
           <TouchableOpacity style={styles.characterContainer} onPress={handleLucyPress}>
-            <Image
-              source={
-                lucyAnimated
-                  ? require('../assets/regina animata.gif')
-                  : require('../assets/regina maria.png')
-              }
-              style={styles.cavemanImage}
-              resizeMode="contain"
-            />
+            {lucyAnimated ? (
+              <ExpoImage
+                source={require('../assets/regina animata.gif')}
+                style={styles.cavemanImage}
+                contentFit="contain"
+              />
+            ) : (
+              <Image
+                source={require('../assets/regina maria.png')}
+                style={styles.cavemanImage}
+                resizeMode="contain"
+              />
+            )}
           </TouchableOpacity>
         </>
       )}
@@ -226,20 +232,20 @@ const styles = StyleSheet.create({
   },
   introText: {
     color: '#fff8dc',
-    fontSize: 24,
+    fontSize: ms(24),
     fontWeight: 'bold',
     textAlign: 'center',
   },
   mirrorContainer: {
     position: 'absolute',
-    top: 80,
-    left: 10,
-    width: 100,
-    height: 120,
+    top: vs(80),
+    left: s(10),
+    width: s(100),
+    height: vs(120),
     zIndex: 5,
   },
   mirrorImage: {
-    top: 70,
+    top: vs(70),
     width: '150%',
     height: '150%',
   },
@@ -252,95 +258,95 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: -45,
-    marginVertical: 100,
+    marginHorizontal: s(-45),
+    marginVertical: vs(100),
     height: '100%',
     width: '100%',
-    right: -40,
-    top: -50,
+    right: s(-40),
+    top: vs(-50),
   },
   insideMirrorImage: {
     width: '85%',
     height: '85%',
     alignSelf: 'center',
-    marginTop: 65,
-    bottom: 30,
-    borderRadius: 10,
+    marginTop: vs(65),
+    bottom: vs(30),
+    borderRadius: ms(10),
   },
   closeMirrorButton: {
     position: 'absolute',
-    top: 20,
-    right: 20,
+    top: vs(20),
+    right: s(20),
     backgroundColor: '#333',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 6,
+    paddingHorizontal: s(12),
+    paddingVertical: vs(6),
+    borderRadius: ms(6),
   },
   closeText: {
     color: '#fff8dc',
-    fontSize: 14,
+    fontSize: ms(14),
     fontWeight: 'bold',
   },
   leftSpeechContainer: {
     position: 'absolute',
-    left: 20,
-    bottom: 10,
+    left: s(20),
+    bottom: vs(10),
     alignItems: 'flex-start',
     zIndex: 10,
   },
   scientistImage: {
-    width: 220,
-    height: 220,
-    top: 30,
-    right: 30,
+    width: s(220),
+    height: vs(220),
+    top: vs(30),
+    right: s(30),
   },
   speechBubble: {
     backgroundColor: '#fff8dc',
     borderColor: '#333',
     borderWidth: 2,
-    borderRadius: 10,
-    padding: 10,
-    width: 340,
-    bottom: 30,
+    borderRadius: ms(10),
+    padding: s(10),
+    width: s(340),
+    bottom: vs(30),
   },
   speechText: {
-    fontSize: 14,
+    fontSize: ms(14),
     fontStyle: 'italic',
     color: '#333',
   },
   nextButton: {
-    marginTop: 8,
+    marginTop: vs(8),
     alignSelf: 'flex-end',
-    paddingVertical: 6,
-    paddingHorizontal: 14,
+    paddingVertical: vs(6),
+    paddingHorizontal: s(14),
     backgroundColor: '#333',
-    borderRadius: 6,
+    borderRadius: ms(6),
   },
   yesButton: {
-    marginTop: 8,
+    marginTop: vs(8),
     alignSelf: 'flex-end',
-    paddingVertical: 6,
-    paddingHorizontal: 14,
+    paddingVertical: vs(6),
+    paddingHorizontal: s(14),
     backgroundColor: '#2e8b57',
-    borderRadius: 6,
+    borderRadius: ms(6),
   },
   nextText: {
     color: '#fff8dc',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: ms(14),
   },
   characterContainer: {
     position: 'absolute',
-    left: 60,
+    left: s(60),
     top: '35%',
-    transform: [{ translateY: -80 }],
+    transform: [{ translateY: vs(-80) }],
     zIndex: 2,
   },
   cavemanImage: {
-    width: 450,
-    height: 480,
-    top: 30,
-    right: 10,
+    width: s(450),
+    height: vs(480),
+    top: vs(30),
+    right: s(10),
   },
   overlayView: {
     position: 'absolute',
@@ -352,6 +358,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 99,
-    padding: 20,
+    padding: s(20),
   },
 });

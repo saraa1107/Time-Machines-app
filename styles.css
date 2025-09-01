@@ -1,0 +1,1441 @@
+/* Reset și variabile CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #01875f;
+    --secondary-color: #1f1f1f;
+    --accent-color: #00dc82;
+    --text-primary: #202124;
+    --text-secondary: #5f6368;
+    --text-light: #ffffff;
+    --background-light: #ffffff;
+    --background-gray: #f8f9fa;
+    --border-color: #dadce0;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --shadow-hover: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background-light);
+}
+
+/* Header */
+.header {
+    background: var(--background-light);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.logo i {
+    font-size: 24px;
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.search-bar {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+    margin: 0 32px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 16px 12px 48px;
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    font-size: 14px;
+    background: var(--background-gray);
+    transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: var(--background-light);
+    box-shadow: 0 0 0 2px rgba(1, 135, 95, 0.2);
+}
+
+.search-bar i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+.btn-signin {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-signin:hover {
+    background: #016b4d;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 20px; /* Restaurat padding-ul original */
+    padding-top: 100px; /* Restaurat padding-top original */
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb i {
+    font-size: 12px;
+}
+
+/* App Details */
+.app-details {
+    background: var(--background-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.app-header {
+    display: flex;
+    padding: 32px; /* Restaurat padding-ul original */
+    gap: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.app-icon img {
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.app-info {
+    flex: 1;
+}
+
+.app-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px; /* Restaurat original */
+    color: var(--text-primary);
+}
+
+.app-developer {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 16px; /* Restaurat original */
+}
+
+.app-category {
+    display: inline-block;
+    background: var(--background-gray);
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    margin-bottom: 16px; /* Restaurat original */
+}
+
+/* Statistici în timp real */
+.app-stats {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px; /* Restaurat original */
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 80px;
+}
+
+.stat-item i {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.stat-number {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.2;
+}
+
+.app-rating {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+}
+
+.stars i {
+    color: #f4b400;
+    font-size: 18px;
+}
+
+.rating-text {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.rating-count {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.app-size {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.app-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.btn-install {
+    background: var(--accent-color);
+    color: var(--text-primary);
+    border: none;
+    padding: 16px 32px;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 140px;
+    justify-content: center;
+}
+
+.btn-install:hover {
+    background: #00b368;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-share,
+.btn-wishlist {
+    background: var(--background-gray);
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-share:hover,
+.btn-wishlist:hover {
+    background: var(--border-color);
+    transform: scale(1.1);
+}
+
+.btn-share i,
+.btn-wishlist i {
+    color: var(--text-secondary);
+    font-size: 18px;
+}
+
+/* Screenshots */
+.screenshots-section {
+    padding: 32px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.screenshots-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.screenshots {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+}
+
+.screenshot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 200px;
+}
+
+.screenshot img {
+    width: 200px;
+    height: 350px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.screenshot img:hover {
+    transform: scale(1.05);
+}
+
+.screenshot span {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* Description */
+.description-section {
+    padding: 32px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.description-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.description-content {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.description-content p {
+    margin-bottom: 16px;
+}
+
+.description-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 24px 0 16px 0;
+    color: var(--text-primary);
+}
+
+.description-content ul {
+    margin: 16px 0 16px 20px;
+}
+
+.description-content li {
+    margin-bottom: 8px;
+}
+
+.description-content strong {
+    color: var(--primary-color);
+}
+
+.description-content em {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Additional Info */
+.additional-info {
+    padding: 32px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.info-item h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.info-item p {
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+/* Reviews */
+.reviews-section {
+    padding: 32px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.reviews-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.review {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.review:last-child {
+    border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.reviewer-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.review-date {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.review-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.review-rating i {
+    color: #f4b400;
+    font-size: 16px;
+}
+
+.review-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+/* Similar Apps */
+.similar-apps {
+    background: var(--background-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 32px;
+}
+
+.similar-apps h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.app-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.app-card:hover {
+    background: var(--background-gray);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.app-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+}
+
+.app-card-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.app-card-info p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.app-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.app-card-rating i {
+    color: #f4b400;
+    font-size: 14px;
+}
+
+.app-card-rating span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Footer */
+.footer {
+    background: var(--secondary-color);
+    color: var(--text-light);
+    margin-top: 64px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 48px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-light);
+}
+
+.footer-section a {
+    display: block;
+    color: #bdc1c6;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--text-light);
+}
+
+.footer-bottom {
+    border-top: 1px solid #3c4043;
+    padding: 24px 20px;
+    text-align: center;
+    color: #bdc1c6;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        height: auto;
+        padding: 16px 20px;
+        gap: 16px;
+    }
+    
+    .nav {
+        gap: 16px;
+    }
+    
+    .search-bar {
+        margin: 0;
+        max-width: 100%;
+    }
+    
+              .app-header {
+         flex-direction: column;
+         text-align: center;
+         align-items: center;
+     }
+     
+     .app-stats {
+         justify-content: center;
+         gap: 16px;
+     }
+     
+     .app-actions {
+        align-items: center;
+        flex-direction: row;
+        gap: 16px;
+    }
+    
+    .screenshots {
+        justify-content: flex-start;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .apps-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 24px 20px; /* Restaurat original */
+        padding-top: 80px; /* Restaurat original */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 16px; /* Restaurat original */
+        padding-top: 70px; /* Restaurat original */
+    }
+    
+    .app-header,
+    .screenshots-section,
+    .description-section,
+    .additional-info,
+    .reviews-section {
+        padding: 24px 16px;
+    }
+    
+    .app-title {
+        font-size: 24px;
+    }
+    
+    .screenshots {
+        gap: 12px;
+    }
+    
+    .screenshot img {
+        width: 160px;
+        height: 280px;
+    }
+}
+
+/* Scrollbar personalizat */
+.screenshots::-webkit-scrollbar {
+    height: 8px;
+}
+
+.screenshots::-webkit-scrollbar-track {
+    background: var(--background-gray);
+    border-radius: 4px;
+}
+
+.screenshots::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.screenshots::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Animații */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Hover effects pentru butoane */
+.btn-install:active,
+.btn-share:active,
+.btn-wishlist:active {
+    transform: scale(0.95);
+}
+
+/* Focus states pentru accesibilitate */
+.btn-install:focus,
+.btn-share:focus,
+.btn-wishlist:focus,
+.search-bar input:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Stiluri pentru Ghidul de Descărcare */
+.download-guide {
+    background: var(--background-light);
+    border-radius: 16px;
+    margin: 32px 0;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.download-guide h2 {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--text-light);
+    padding: 24px 32px;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.guide-content {
+    padding: 32px;
+}
+
+.guide-step {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    align-items: flex-start;
+}
+
+.guide-step:last-child {
+    margin-bottom: 0;
+}
+
+.step-number {
+    background: var(--primary-color);
+    color: var(--text-light);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.compatibility-check {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.compatibility-check i {
+    color: var(--accent-color);
+    font-size: 18px;
+}
+
+.compatibility-check span {
+    background: var(--background-gray);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.btn-download-apk {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    color: var(--text-light);
+    border: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    margin: 16px 0;
+}
+
+.btn-download-apk:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-download-apk:active {
+    transform: translateY(0);
+}
+
+.file-info {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.step-content ol,
+.step-content ul {
+    margin-left: 20px;
+    color: var(--text-secondary);
+}
+
+.step-content li {
+    margin-bottom: 8px;
+}
+
+.start-adventure {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    color: var(--text-light);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.start-adventure i {
+    font-size: 24px;
+}
+
+.start-adventure span {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.guide-note {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 32px;
+}
+
+.guide-note h3 {
+    color: #856404;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.guide-note p {
+    color: #856404;
+    margin-bottom: 16px;
+}
+
+.guide-note ul {
+    margin-left: 20px;
+    color: #856404;
+}
+
+.guide-note li {
+    margin-bottom: 6px;
+}
+
+/* Responsive pentru ghidul de descărcare */
+@media (max-width: 768px) {
+    .guide-step {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+    
+    .step-number {
+        align-self: center;
+    }
+    
+    .compatibility-check {
+        justify-content: center;
+    }
+    
+    .guide-content {
+        padding: 24px 20px;
+    }
+    
+    .download-guide h2 {
+        padding: 20px 24px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .guide-content {
+        padding: 20px 16px;
+    }
+    
+    .download-guide h2 {
+        padding: 18px 20px;
+        font-size: 20px;
+    }
+    
+    .btn-download-apk {
+        padding: 14px 24px;
+        font-size: 15px;
+    }
+}
+
+/* Secțiunea de Bibliografie și Credite */
+.bibliography-section {
+    background: var(--background-gray);
+    border-radius: 16px;
+    margin: 40px 0;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.bibliography-section h2 {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--text-light);
+    padding: 24px 32px;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bibliography-content {
+    padding: 32px;
+}
+
+.disclaimer-box {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+}
+
+.disclaimer-box h3 {
+    color: #856404;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.disclaimer-box p {
+    color: #856404;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.credits-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.credits-section p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.credits-list {
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.credits-list h4 {
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.credits-list ul {
+    margin-left: 20px;
+    color: var(--text-secondary);
+}
+
+.credits-list li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.educational-purpose {
+    background: #e8f5e8;
+    border: 1px solid #c8e6c9;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.educational-purpose h4 {
+    color: #2e7d32;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.educational-purpose p {
+    color: #2e7d32;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.educational-purpose ul {
+    margin-left: 20px;
+    color: #2e7d32;
+}
+
+.educational-purpose li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.contact-info {
+    background: #e3f2fd;
+    border: 1px solid #bbdefb;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.contact-info h4 {
+    color: #1565c0;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-info p {
+    color: #1565c0;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.specific-sources {
+    background: #f3e5f5;
+    border: 1px solid #e1bee7;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.specific-sources h4 {
+    color: #7b1fa2;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.specific-sources p {
+    color: #7b1fa2;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.specific-sources ul {
+    margin-left: 20px;
+    color: #7b1fa2;
+}
+
+.specific-sources li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.specific-sources a {
+    color: #4a148c;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.specific-sources a:hover {
+    color: #6a1b9a;
+    text-decoration: underline;
+}
+
+/* Secțiunea Despre Dezvoltator */
+.developer-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    margin: 40px 0;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.developer-section h2 {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    padding: 24px 32px;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.developer-content {
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.developer-story {
+    background: #e8f4fd;
+    border: 1px solid #b3d9f2;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.developer-story h3 {
+    color: #1976d2;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.developer-story p {
+    color: #1976d2;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.development-process {
+    background: #f3e5f5;
+    border: 1px solid #e1bee7;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.development-process h3 {
+    color: #7b1fa2;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.development-process p {
+    color: #7b1fa2;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.development-process ul {
+    margin-left: 20px;
+    color: #7b1fa2;
+}
+
+.development-process li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.academic-supervision {
+    background: #e8f5e8;
+    border: 1px solid #c8e6c9;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.academic-supervision h3 {
+    color: #2e7d32;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.academic-supervision p {
+    color: #2e7d32;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.academic-supervision ul {
+    margin-left: 20px;
+    color: #2e7d32;
+}
+
+.academic-supervision li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.mission-statement {
+    background: #fff3e0;
+    border: 1px solid #ffcc80;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.mission-statement h3 {
+    color: #f57c00;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mission-statement p {
+    color: #f57c00;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.mission-statement ul {
+    margin-left: 20px;
+    color: #f57c00;
+}
+
+.mission-statement li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.future-vision {
+    background: #fce4ec;
+    border: 1px solid #f8bbd9;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.future-vision h3 {
+    color: #c2185b;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.future-vision p {
+    color: #c2185b;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.future-vision ul {
+    margin-left: 20px;
+    color: #c2185b;
+}
+
+.future-vision li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Responsive pentru bibliografie */
+@media (max-width: 768px) {
+    .bibliography-content {
+        padding: 24px 20px;
+    }
+    
+    .bibliography-section h2 {
+        padding: 20px 24px;
+        font-size: 22px;
+    }
+    
+    .disclaimer-box,
+    .credits-list,
+    .educational-purpose,
+    .contact-info,
+    .specific-sources {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bibliography-content {
+        padding: 20px 16px;
+    }
+    
+    .bibliography-section h2 {
+        padding: 18px 20px;
+        font-size: 20px;
+    }
+    
+    .disclaimer-box,
+    .credits-list,
+    .educational-purpose,
+    .contact-info,
+    .specific-sources {
+        padding: 16px;
+    }
+}
+
+/* Responsive pentru secțiunea dezvoltator */
+@media (max-width: 768px) {
+    .developer-content {
+        padding: 24px 20px;
+    }
+    
+    .developer-section h2 {
+        padding: 20px 24px;
+        font-size: 22px;
+    }
+    
+    .developer-story,
+    .development-process,
+    .academic-supervision,
+    .mission-statement,
+    .future-vision {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .developer-content {
+        padding: 20px 16px;
+    }
+    
+    .developer-section h2 {
+        padding: 18px 20px;
+        font-size: 20px;
+    }
+    
+    .developer-story,
+    .development-process,
+    .academic-supervision,
+    .mission-statement,
+    .future-vision {
+        padding: 16px;
+    }
+}

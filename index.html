@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Machines - Călătorie în Istorie | Play</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>Play</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Jocuri</a>
+                <a href="#bibliography" class="nav-link">Despre Joc</a>
+                <a href="#developer" class="nav-link">Despre Dezvoltator</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="#">Jocuri</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="#">Educaționale</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Time Machines</span>
+        </div>
+
+        <!-- App Details -->
+        <div class="app-details">
+            <div class="app-header">
+                <div class="app-icon">
+                    <img src="C:\Users\gabri\OneDrive\Desktop\test\Leonardo_Kino_XL_An_elegantly_scripted_Time_Machine_logo_domin_0.jpg" alt="Time Machines Icon">
+                </div>
+                <div class="app-info">
+                    <h1 class="app-title">Time Machines</h1>
+                    <p class="app-developer">de Chronos Studios</p>
+                                         <div class="app-category">Educațional</div>
+                     
+                     <!-- Statistici în timp real -->
+                     <div class="app-stats">
+
+                         <div class="stat-item">
+                             <i class="fas fa-users"></i>
+                             <span class="stat-number" id="users-count">-</span>
+                             <span class="stat-label">Descarcari</span>
+                         </div>
+                         
+                     </div>
+                 </div>
+                 <div class="app-actions">
+                    <button class="btn-install" onclick="toggleDownloadGuide()">
+                        <i class="fas fa-download"></i>
+                        Instalează
+                    </button>
+                    <button class="btn-share">
+                        <i class="fas fa-share"></i>
+                    </button>
+                    <button class="btn-wishlist">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Screenshots -->
+            <div class="screenshots-section">
+                <h2>Capturi de ecran</h2>
+                <div class="screenshots">
+                    <div class="screenshot">
+                        <img src="C:\Users\gabri\OneDrive\Desktop\test\b87e7be2-b069-4261-abc0-00436fb73d22.jpeg" alt="Clasa a V-a">
+                    </div>
+                    <div class="screenshot">
+                        <img src="C:\Users\gabri\OneDrive\Desktop\test\cf49ba0f-5537-4da8-a749-d6aeae849b32.jpeg" alt="Clasa a VI-a">
+                       
+                    </div>
+                    <div class="screenshot">
+                        <img src="C:\Users\gabri\OneDrive\Desktop\test\36c31a40-556f-48f5-9cbf-77bc018ec4a0.jpeg" alt="Clasa a VII-a">
+                        
+                    </div>
+                    <div class="screenshot">
+                        <img src="C:\Users\gabri\OneDrive\Desktop\test\909c1611-ed0f-4d1a-aee0-7bcd91d870d3.jpeg" alt="Clasa a VIII-a">
+                    
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="description-section">
+                <h2>Despre acest joc</h2>
+                <div class="description-content">
+                    <p>Bine ai venit în laboratorul Profesorului Chronos! 🧪</p>
+                    
+                    <p><strong>Time Machines</strong> este un joc educațional captivant care te va transporta prin istorie, de la clasa a V-a până la clasa a VIII-a.</p>
+                    
+                    <h3>🎯 Ce vei descoperi:</h3>
+                    <ul>
+                        <li><strong>Clasa a V-a:</strong> Învățăceii - primele lecții despre Preistorie</li>
+                        <li><strong>Clasa a VI-a:</strong> Exploratorii - aventuri din Renaștere</li>
+                        <li><strong>Clasa a VII-a:</strong> Temerarii - Primul Razboi Mondial</li>
+                    </ul>
+
+                    <h3>🚀 Caracteristici:</h3>
+                    <ul>
+                        <li>4 mașini ale timpului unice</li>
+                        <li>Animații interactive și captivante</li>
+                        <li>Dialoguri cu Personaje din Istorie</li>
+                        <li>Interfață intuitivă și prietenoasă</li>
+                        <li>Conținut educațional adaptat pe clase</li>
+                        <li>Grafice colorate și atractive</li>
+                    </ul>
+
+                    <h3>📚 Perfect pentru:</h3>
+                    <ul>
+                        <li>Elevii de la clasa a V-a până la clasa a VIII-a</li>
+                        <li>Profesorii de istorie</li>
+                        <li>Părinții care vor să-și învețe copiii</li>
+                        <li>Oricine pasionat de istorie</li>
+                    </ul>
+
+                    <p><em>Descarcă acum și începe călătoria prin timp cu Profesorul Chronos! ⏰</em></p>
+                </div>
+            </div>
+
+            <!-- Ghid de Descărcare -->
+            <div class="download-guide" id="download-guide" style="display: none;">
+                <h2>📱 Ghid de Descărcare</h2>
+                <div class="guide-content">
+                    <div class="guide-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Descarcă Expo Go</h3>
+                            <p>Apasă pe butonul de mai jos pentru a descărca Expo Go:</p>
+                            <button class="btn-download-apk">
+                                <i class="fas fa-download"></i>
+                                Descarcă Expo Go
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="guide-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Descarcă APK-ul</h3>
+                            <p>Apasă pe butonul de mai jos pentru a descărca aplicatia:</p>
+                            <button class="btn-download-apk">
+                                <i class="fas fa-download"></i>
+                                Descarcă Time Machines (v1.0.0)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="guide-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Apasa butonul open in expo</h3>
+                            <div class="screenshot">
+                                <img src="C:\Users\gabri\OneDrive\Desktop\test\82741356-3567-4053-bd25-da59b0bcd185.jpeg" >
+                            </div>
+                            <p>Va aparea o noua fereastra care te intreaba daca vrei sa deschizi aplicatia in Expo Go.</p>
+                            <div class="screenshot">
+                                <img src="C:\Users\gabri\OneDrive\Desktop\test\229e3d12-dc3f-424c-8f57-160feef1ec3f.jpeg" >
+                            </div>
+                            <p>Apasa pe butonul Open.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Download-ul va incepe automat.</h3>
+                            <img src="C:\Users\gabri\OneDrive\Desktop\test\a21eb6a9-112a-4916-9962-5703083ed0eb.jpeg" >
+                            <p>Acest lucru poate dura putin. Asigura-te ca ai internet.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Începe Aventura!</h3>
+                            <p>🎉 Felicitări! Acum poți începe călătoria prin timp cu Profesorul Chronos!</p>
+                            <div class="screenshot">
+                                <img src="C:\Users\gabri\OneDrive\Desktop\test\3bbff324-6e88-49c6-84a5-4bad6a38c26a.jpeg">
+                            </div>
+                            <p>Apasa pe X-ul din partea de sus dreapta a anuntului cu alb.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-note">
+                        <h3>⚠️ Notă Importantă</h3>
+                        <p>Aceasta este o versiune Beta. Pot aparea unele probleme. Ne scuzati pentru orice inconveniente.</p>
+                        <p>Vom face tot posibilul sa remediem orice problema care ar aparea.</p>
+                        <p>Problemele pot aparea in functie de dispozitivul pe care il folositi. Acestea sunt legate de grafica jocului care nu a fost inca testat pe anumite dispozitive.</p>
+                        <p>De asemenea asigura-te ca ai o sursa stabila de internet.</p>
+                        <p>Daca observi ca nu poti juca minigame-urile, sau vedea unele videoclipuri te sfatuim sa ceri ajutorul unui coleg si sa va jucati impreuna.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="additional-info">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h3>Actualizat</h3>
+                        <p>15 decembrie 2024</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Versiunea</h3>
+                        <p>1.0.0</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Android</h3>
+                        <p>5.0 și mai nou</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>In-App Purchases</h3>
+                        <p>Nu</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bibliografie și Credite -->
+            <div class="bibliography-section" id="bibliography">
+                <h2>📚 Bibliografie și Credite</h2>
+                <div class="bibliography-content">
+                    <div class="disclaimer-box">
+                        <h3>⚠️ Declarație Importantă</h3>
+                        <p><strong>Time Machines</strong> este un proiect educațional dezvoltat exclusiv în scop didactic și de învățare. Această aplicație nu este destinată comercializării și nu generează venituri.</p>
+                    </div>
+
+                    <div class="credits-section">
+                        <h3>🎨 Credite pentru Imagini și Videoclipuri</h3>
+                        <p>Toate imaginile, videoclipurile și materialele multimedia utilizate în această aplicație aparțin drepturilor de autor ale creatorilor lor originali. Nu ne însușim drepturile de autor pentru aceste materiale.</p>
+                        
+                        <div class="credits-list">
+                            <h4>Surse de imagini și videoclipuri:</h4>
+                            <ul>
+                                <li><strong>Renaștere:</strong>
+                                    <ul>
+                                        <li>Omul Vitruvian (Da Vinci) - Luc Viatour, Wikimedia Commons</li>
+                                        <li>Mona Lisa - Leonardo da Vinci, Louvre Museum</li>
+                                        <li>Pieta - Michelangelo Buonarroti, Vatican Museums</li>
+                                        <li>David - Michelangelo Buonarroti, Galleria dell'Accademia</li>
+                                        <li>Moise - Michelangelo Buonarroti, San Pietro in Vincoli</li>
+                                        <li>Capela Sixtină - Interior, Vatican Museums</li>
+                                        <li>Portrait of a Musician - Leonardo da Vinci, Pinacoteca Ambrosiana</li>
+                                        <li>Lady with an Ermine - Leonardo da Vinci, Czartoryski Museum</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Primul Razboi Mondial - România:</strong>
+                                    <ul>
+                                        <li>Regina Maria a României - Arhive naționale</li>
+                                        <li>Harta României Mari (Transilvania, Basarabia, Bucovina) - Arhive istorice</li>
+                                        <li>Sala Unirii din Alba Iulia - Fotografie istorică</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Primul Război Mondial:</strong>
+                                    <ul>
+                                        <li>Fotografii de război - Arhive militare</li>
+                                        <li>Zeppelin - Fotografie istorică</li>
+                                        <li>Mitralieră - Arhive militare</li>
+                                        <li>Soldat român - Arhive militare</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Preistorie:</strong>
+                                    <ul>
+                                        <li>Lucy (Australopithecus afarensis) - Reconstrucție științifică</li>
+                                        <li>Ötzi (Iceman) - Reconstrucție științifică</li>
+                                        <li>Fosile și reconstrucții - Materiale educaționale</li>
+                                        <li>Evoluția umană - Materiale educaționale</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Materiale educaționale:</strong>
+                                    <ul>
+                                        <li>Animații și GIF-uri create pentru scop educațional utilizand softuri AI</li>
+                                        <li>Ilustrații și diagrame educaționale</li>
+                                        <li>Fotografii din domeniul public</li>
+                                        <li>Materiale cu licență liberă</li>
+                                        <li>Imagini si videoclipuri create de AI.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="educational-purpose">
+                            <h4>🎓 Scop Educațional</h4>
+                            <p>Această aplicație este destinată exclusiv utilizării în mediul educațional pentru:</p>
+                            <ul>
+                                <li>Învățarea istoriei în mod interactiv</li>
+                                <li>Suplimentarea materialelor didactice tradiționale</li>
+                                <li>Stimularea interesului elevilor pentru istorie</li>
+                                <li>Facilitarea înțelegerii conceptelor istorice complexe</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Despre Dezvoltator -->
+            <div class="developer-section" id="developer">
+                <h2>👨‍💻 Despre Dezvoltator</h2>
+                <div class="developer-content">
+                    <div class="developer-story">
+                        <h3>🎮 Pasiunea pentru Istorie și Jocuri</h3>
+                        <p><strong>Time Machines</strong> este rezultatul pasiunii unui student pentru istorie și tehnologie. Acest proiect educațional a fost creat din dorința de a face învățarea istoriei mai interactivă și mai captivantă pentru elevii de toate vârstele.</p>
+                    </div>
+
+                    <div class="development-process">
+                        <h3>🔬 Procesul de Dezvoltare</h3>
+                        <p>Jocul a fost dezvoltat cu atenție la detalii, combinând:</p>
+                        <ul>
+                            <li><strong>Creativitate tehnică:</strong> Programare și design interactiv</li>
+                            <li><strong>Pasiune pentru istorie:</strong> Cercetare aprofundată a faptelor istorice</li>
+                            <li><strong>Viziune educațională:</strong> Adaptarea conținutului pentru diferite niveluri de învățare</li>
+                            <li><strong>Inovație:</strong> Utilizarea tehnologiilor moderne pentru educație</li>
+                        </ul>
+                    </div>
+
+                    <div class="academic-supervision">
+                        <h3>📚 Coordonare Academică</h3>
+                        <p>Pentru a asigura <strong>acuratețea istorică</strong> și valoarea educațională a conținutului, întregul proiect a fost coordonat de un profesor specializat în istorie. Această colaborare garantează că:</p>
+                        <ul>
+                            <li>Faptele istorice prezentate sunt corecte și verificabile</li>
+                            <li>Conținutul este adaptat la programele școlare românești</li>
+                            <li>Informațiile sunt prezentate într-un mod pedagogic eficient</li>
+                            <li>Materialele respectă standardele educaționale</li>
+                        </ul>
+                    </div>
+
+                    <div class="mission-statement">
+                        <h3>🌟 Misiunea Noastră</h3>
+                        <p>Prin acest proiect, ne propunem să:</p>
+                        <ul>
+                            <li>Stimulăm interesul elevilor pentru istorie prin tehnologie interactivă</li>
+                            <li>Facilităm înțelegerea evenimentelor istorice complexe</li>
+                            <li>Creăm o experiență de învățare memorabilă și distractivă</li>
+                            <li>Contribuim la modernizarea educației în România</li>
+                        </ul>
+                    </div>
+
+                    <div class="future-vision">
+                        <h3>🚀 Viziunea de Viitor</h3>
+                        <p>Acest proiect reprezintă doar începutul unei călătorii mai mari. Planurile pentru viitor includ:</p>
+                        <ul>
+                            <li>Extinderea la mai multe perioade istorice</li>
+                            <li>Dezvoltarea de funcționalități interactive suplimentare</li>
+                            <li>Colaborarea cu mai mulți profesori și specialiști</li>
+                            <li>Crearea unei comunități educaționale în jurul proiectului</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    
+
+    <script src="script.js"></script>
+    <script src="expo-analytics.js"></script>
+    <script src="config.js"></script>
+</body>
+</html>

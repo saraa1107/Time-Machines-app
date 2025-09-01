@@ -8,6 +8,8 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
+import { Image as ExpoImage } from 'expo-image';
+import { s, vs, ms } from '../utils/scale';
 
 const gifs = [
   {
@@ -50,7 +52,7 @@ export default function TimeMachinesScreen({ navigation }) {
     'Atinge tabla din spatele meu pentru a vedea mașinile timpului disponibile.',
   ];
 
-  const introText = "Saluta-l pe Profesorul Chronos! 👨‍🔬";
+  const introText = "Salută-l pe Profesorul Chronos! 👨‍🔬(Apasă pe el pentru a începe conversația)";
 
   const handleGifPress = (id) => {
     const count = activeGifs[id] || 0;
@@ -92,14 +94,18 @@ export default function TimeMachinesScreen({ navigation }) {
       {!showScroll && (
         <>
           <TouchableOpacity style={styles.scientistContainer} onPress={handleScientistPress}>
-            <Image
-              source={
-                scientistActive
-                  ? require('../assets/scientist/animated.gif')
-                  : require('../assets/scientist/static.png')
-              }
-              style={styles.scientistImage}
-            />
+            {scientistActive ? (
+              <ExpoImage
+                source={require('../assets/scientist/animated.gif')}
+                style={styles.scientistImage}
+                contentFit="contain"
+              />
+            ) : (
+              <Image
+                source={require('../assets/scientist/static.png')}
+                style={styles.scientistImage}
+              />
+            )}
           </TouchableOpacity>
 
           {/* Textul intro care apare la start */}
@@ -154,9 +160,10 @@ export default function TimeMachinesScreen({ navigation }) {
                     { flexDirection: isLeft ? 'row' : 'row-reverse' },
                   ]}
                 >
-                  <Image
+                  <ExpoImage
                     source={activeGifs[gif.id] ? gif.src : gif.thumbnail}
                     style={styles.gifImage}
+                    contentFit="contain"
                   />
                   {activeGifs[gif.id] === 1 && (
                     <View style={styles.gifTextContainer}>
@@ -196,20 +203,19 @@ const styles = StyleSheet.create({
   },
   hiddenButton: {
     position: 'absolute',
-    left: 30,
-    top: 320,
-    width: 120,
-    height: 60,
+    left: s(30),
+    top: vs(280),
+    width: '20%',
+    height: '20%',
     zIndex: 10,
-    backgroundColor: 'transparent',
   },
   parchment: {
     position: 'absolute',
-    top: 80,
-    left: 20,
-    right: 20,
-    bottom: 40,
-    padding: 15,
+    top: vs(80),
+    left: s(20),
+    right: s(20),
+    bottom: vs(40),
+    padding: ms(15),
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -226,10 +232,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   gifImage: {
-    width: 150,
-    height: 125,
+    width: s(150),
+    height: vs(125),
     resizeMode: 'contain',
-    borderRadius: 15,
+    borderRadius: ms(15),
   },
   gifTextContainer: {
     flex: 1,
@@ -237,61 +243,62 @@ const styles = StyleSheet.create({
   },
   gifText: {
     fontSize: 16,
-    fontFamily: 'chalkduster',
+    fontFamily: 'arial',
     fontStyle: 'italic',
     color: '#e9e3d3',
     textAlign: 'center',
   },
   closeButton: {
-    marginLeft: 250,
-    marginBottom: 60,
+    marginLeft:s( 250),
+    marginBottom:vs( 60),
   },
   backImage: {
-    width: 60,
-    height: 30,
+    width: s(60),
+    height: vs(30),
   },
   scientistContainer: {
-    top: 40,
-    right: 200,
-    width: 200,
+    position: 'absolute',
+    top: vs(250),
+    right: s(180),
+    width: s(300),
+    height: vs(200),
     zIndex: 10,
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
   },
   scientistImage: {
-    top: 270,
-    left: 120,
-    width: 600,
-    height: 400,
+    width: '200%',
+    height: '200%',
     resizeMode: 'contain',
   },
   speechBubble: {
     position: 'absolute',
-    bottom: 50,
-    left: 20,
-    right: 20,
+    bottom: vs(50),
+    left: s(20),
+    right: s(20),
     backgroundColor: '#fff8dc',
-    padding: 12,
-    borderRadius: 10,
+    padding: ms(12),
+    borderRadius: ms(10),
     borderWidth: 2,
     borderColor: '#333',
   },
   speechText: {
-    fontSize: 14,
+    fontSize: ms(14),
     color: '#333',
+    fontFamily: 'arial',
     fontStyle: 'italic',
     textAlign: 'center',
   },
   nextButton: {
-    marginTop: 10,
+    marginTop: vs(10),
     backgroundColor: '#333',
-    paddingVertical: 6,
-    paddingHorizontal: 14,
-    borderRadius: 6,
+    paddingVertical: vs(6),
+    paddingHorizontal: s(14),
+    borderRadius: ms(6),
     alignSelf: 'flex-start',
   },
   nextButtonText: {
     color: '#fff8dc',
-    fontSize: 14,
+    fontSize: ms(14),
     fontWeight: 'bold',
   },
 });

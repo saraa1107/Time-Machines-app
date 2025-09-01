@@ -9,20 +9,21 @@ import {
   Text,
   Dimensions,
 } from 'react-native';
+import { s, vs, ms } from '../utils/scale';
 
 const { width, height } = Dimensions.get('window');
 
 export default function FossilPuzzle({ onComplete }) {
   const targets = {
-    head: { x: width / 6.2 - 60, y: 247 },
-    torso: { x: width / 1.5 - 70, y: 235 },
-    limbs: { x: width / 1.8 - 70, y: height - 615 },
+    head: { x: width / 6.2 - s(58), y: vs(234) },
+    torso: { x: width / 1.5 - s(70), y: vs(226) },
+    limbs: { x: width / 1.8 - s(67), y: height - vs(583) },
   };
 
   const initPos = {
-    head: useRef(new Animated.ValueXY({ x: 20, y: 20 })).current,
-    torso: useRef(new Animated.ValueXY({ x: width - 100, y: 25 })).current,
-    limbs: useRef(new Animated.ValueXY({ x: 30, y: height - 180 })).current,
+    head: useRef(new Animated.ValueXY({ x: s(20), y: vs(20) })).current,
+    torso: useRef(new Animated.ValueXY({ x: width - s(100), y: vs(25) })).current,
+    limbs: useRef(new Animated.ValueXY({ x: s(30), y: height - vs(180) })).current,
   };
 
   const [placed, setPlaced] = useState({
@@ -98,7 +99,7 @@ export default function FossilPuzzle({ onComplete }) {
     const target = targets[name];
     const dx = Math.abs(pos.x - target.x);
     const dy = Math.abs(pos.y - target.y);
-    return dx < 60 && dy < 60;
+    return dx < s(60) && dy < vs(60);
   };
 
   const allPlaced = Object.values(placed).every((p) => p);
@@ -116,19 +117,19 @@ export default function FossilPuzzle({ onComplete }) {
       <View
         style={[
           styles.guideDot,
-          { backgroundColor: 'red', left: targets.head.x + 105, top: targets.head.y + 105 },
+          { backgroundColor: 'red', left: targets.head.x + s(105), top: targets.head.y + vs(105) },
         ]}
       />
       <View
         style={[
           styles.guideDot,
-          { backgroundColor: 'green', left: targets.torso.x + 85, top: targets.torso.y + 85 },
+          { backgroundColor: 'green', left: targets.torso.x + s(85), top: targets.torso.y + vs(85) },
         ]}
       />
       <View
         style={[
           styles.guideDot,
-          { backgroundColor: 'blue', left: targets.limbs.x + 50, top: targets.limbs.y + 50 },
+          { backgroundColor: 'blue', left: targets.limbs.x + s(50), top: targets.limbs.y + vs(50) },
         ]}
       />
 
@@ -192,30 +193,30 @@ const styles = StyleSheet.create({
   piece: {
     position: 'absolute',
   },
+  
   headImage: {
-    width: 210,
-    height: 210,
+    width: s(200),
+    height: vs(200),
   },
   torsoImage: {
-    width: 170,
-    height: 170,
+    width: s(160),
+    height: vs(160),
   },
   limbsImage: {
-    width: 100,
-    height: 100,
+    width: s(90),
+    height: vs(90),
   },
   doneButton: {
     position: 'absolute',
-    bottom: 40,
+    bottom: vs(40),
     backgroundColor: '#2e8b57',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 8,
+    paddingHorizontal: s(20),
+    paddingVertical: vs(10),
+    borderRadius: ms(8),
   },
   doneText: {
     color: '#fff8dc',
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: ms(18),
   },
-
 });

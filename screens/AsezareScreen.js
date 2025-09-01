@@ -9,7 +9,9 @@ import {
   TouchableOpacity,
   PanResponder,
 } from 'react-native';
+import { Image as ExpoImage } from 'expo-image';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { s, vs, ms } from '../utils/scale';
 
 export default function VanatoareScreen() {
   const navigation = useNavigation();
@@ -23,7 +25,7 @@ export default function VanatoareScreen() {
   const [showQuiz, setShowQuiz] = useState(false);
   const [hasAnsweredCorrectly, setHasAnsweredCorrectly] = useState(false);
   const [showGif, setShowGif] = useState(false);
-  const [seceraPosition] = useState(new Animated.ValueXY({ x: 150, y: 400 }));
+  const [seceraPosition] = useState(new Animated.ValueXY({ x: s(150), y: vs(400) }));
 
   const grauRef = useRef(null);
   const seceraRef = useRef(null);
@@ -38,7 +40,7 @@ export default function VanatoareScreen() {
       setHasAnsweredCorrectly(false);
       setCurrentLine(0);
       setShowIntro(true);
-      seceraPosition.setValue({ x: 150, y: 400 });
+      seceraPosition.setValue({ x: s(150), y: vs(400) });
 
       return () => {
         // Optional: curățenie la ieșire din ecran
@@ -94,7 +96,7 @@ export default function VanatoareScreen() {
         setShowGif(true);
       } else {
         Animated.spring(seceraPosition, {
-          toValue: { x: 150, y: 400 },
+          toValue: { x: s(150), y: vs(400) },
           useNativeDriver: false,
         }).start();
       }
@@ -105,17 +107,17 @@ export default function VanatoareScreen() {
   });
 
   const lucyLines = [
-    'Bine ai venit in neolitic! Acum oamenii au început să se stabilească în așezări.',
+    'Bine ai venit în neolitic! Acum oamenii au început să se stabilească în așezări.',
     'De asemenea, au început să practice agricultura și creșterea animalelor.',
-    'Sunt multe de facut, asa ca ei au nevoie de ajutorul tau. Poti sa seceri graul si sa rasnesti boabele?',
-    'Te-ai descurcat foarte bine! Înainte de a pleca, locuitorii asezarii vor sa iti multumeasca.',
-    'Ei ti-au pregătit un mic cadou, o statuetă din piatră.',
-    'Insa va trebui să răspunzi la o întrebare. Vrei sa vezi cum arata o locuinta din neolitic?',
-    'Acum poti lua acasa un cadou unic!',
-    'Din pacate, va trebui sa te intorci in prezent.',
-    'Se pare ca masina timpului va ramane fara combustibil in curand.',
-    'Calatoria noastra in Preistorie, s-a incheiat. Eu si Lucy speram ca te-am ajutat sa intelegi traiul oamenilor din aceasta epoca.',
-    'Vrei sa te întorci în prezent si sa-l revezi pe Profesorul Chronos? 👨‍🔬',
+    'Sunt multe de făcut, așa că ei au nevoie de ajutorul tău. Poți să seceri grâul și să râșnești boabele?',
+    'Te-ai descurcat foarte bine! Înainte de a pleca, locuitorii așezării vor să-ți mulțumească.',
+    'Ei ți-au pregătit un mic cadou, o statuetă din piatră.',
+    'Însă va trebui să răspunzi la o întrebare. Vrei să vezi cum arată o locuință din neolitic?',
+    'Acum poți lua acasă un cadou unic!',
+    'Din păcate, va trebui să te întorci în prezent.',
+    'Se pare că mașina timpului va rămâne fără combustibil în curând.',
+    'Călătoria noastră în Preistorie s-a încheiat. Eu și Lucy sperăm că te-am ajutat să înțelegi traiul oamenilor din această epocă.',
+    'Vrei să te întorci în prezent și să-l revezi pe Profesorul Chronos? 👨‍🔬',
   ];
 
   useEffect(() => {
@@ -206,7 +208,7 @@ export default function VanatoareScreen() {
 
           {showGif && (
             <>
-              <Image source={require('../assets/harvest.gif')} style={styles.seceratGif} />
+              <ExpoImage source={require('../assets/harvest.gif')} style={styles.seceratGif} contentFit="contain" />
               <TouchableOpacity
                 style={styles.doneButton}
                 onPress={() => {
@@ -266,7 +268,7 @@ const styles = StyleSheet.create({
   },
   introText: {
     color: '#fff8dc',
-    fontSize: 28,
+    fontSize: ms(28),
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -276,41 +278,41 @@ const styles = StyleSheet.create({
   },
   dialogContainer: {
     position: 'absolute',
-    bottom: 40,
-    right: 30,
+    bottom: vs(-40),
+    right: s(30),
     flexDirection: 'column',
     alignItems: 'flex-end',
   },
   lucySmall: {
-    width: 225,
-    height: 225,
-    right: 180,
-    top: 105,
+    width: s(225),
+    height: vs(225),
+    right: s(180),
+    top: vs(105),
   },
   speechBubble: {
     backgroundColor: '#fff8dc',
     borderColor: '#333',
     borderWidth: 2,
-    borderRadius: 10,
-    padding: 10,
-    maxWidth: 330,
+    borderRadius: ms(10),
+    padding: ms(10),
+    maxWidth: s(330),
     alignSelf: 'flex-end',
-    marginBottom: 560,
-    paddingBottom: 50,
+    marginBottom: vs(560),
+    paddingBottom: vs(50),
   },
   speechText: {
-    fontSize: 14,
+    fontSize: ms(14),
     fontStyle: 'italic',
     color: '#333',
   },
   nextButton: {
     position: 'absolute',
-    bottom: 610,
-    right: 40,
+    bottom: vs(530),
+    right: s(40),
     backgroundColor: '#333',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    paddingVertical: vs(10),
+    paddingHorizontal: s(20),
+    borderRadius: ms(8),
   },
   greenButton: {
     backgroundColor: 'green',
@@ -318,7 +320,7 @@ const styles = StyleSheet.create({
   nextButtonText: {
     color: '#fff8dc',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: ms(16),
   },
   miniGameOverlay: {
     position: 'absolute',
@@ -329,39 +331,39 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 248, 220, 0.9)',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    padding: s(20),
     zIndex: 10,
   },
   grauImage: {
     position: 'absolute',
-    top: 550,
-    width: 400,
-    height: 300,
+    top: vs(550),
+    width: s(400),
+    height: vs(300),
   },
   seceraImage: {
     position: 'absolute',
-    top: 400,
-    left: 150,
-    width: 300,
-    height: 300,
+    top: vs(400),
+    left: s(150),
+    width: s(300),
+    height: vs(300),
   },
   seceratGif: {
     position: 'absolute',
-    top: 50,
-    width: 400,
-    height: 400,
+    top: vs(50),
+    width: s(400),
+    height: vs(400),
     resizeMode: 'contain',
   },
   doneButton: {
-    marginTop: 30,
+    marginTop: vs(30),
     backgroundColor: 'green',
-    padding: 15,
-    borderRadius: 10,
+    padding: s(15),
+    borderRadius: ms(10),
   },
   doneButtonText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: ms(16),
   },
   quizBackground: {
     position: 'absolute',
@@ -374,31 +376,31 @@ const styles = StyleSheet.create({
   },
   quizInnerContainer: {
     backgroundColor: 'rgba(255,248,220,0.9)',
-    borderRadius: 12,
-    padding: 20,
-    marginHorizontal: 20,
+    borderRadius: ms(12),
+    padding: s(20),
+    marginHorizontal: s(20),
     alignItems: 'center',
-    width: '70%',
-    top: -110,
+    width: '100%',
+    top: vs(-150),
     left: 0,
     right: 0,
   },
   quizQuestion: {
-    fontSize: 18,
+    fontSize: ms(18),
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: vs(20),
     color: '#333',
     textAlign: 'center',
   },
   quizOption: {
     backgroundColor: '#ddd',
-    padding: 12,
-    marginVertical: 8,
+    padding: s(12),
+    marginVertical: vs(8),
     width: '100%',
-    borderRadius: 8,
+    borderRadius: ms(8),
   },
   quizOptionText: {
-    fontSize: 16,
+    fontSize: ms(16),
     textAlign: 'center',
     color: '#333',
   },

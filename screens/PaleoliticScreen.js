@@ -7,6 +7,8 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+import { Image as ExpoImage } from 'expo-image';
+import { s, vs, ms } from '../utils/scale';
 import FossilPuzzle from './FossilPuzzle';
 
 export default function PaleoliticScreen({ navigation }) {
@@ -21,7 +23,7 @@ export default function PaleoliticScreen({ navigation }) {
   const professorLines = [
     'Vei avea nevoie de ajutor pentru a înțelege cum trăiau oamenii în Paleolitic.',
     'Ea este Lucy și te va ajuta să te integrezi în această lume preistorică.',
-    'Acum poți vorbi cu Lucy. De abia așteaptă să te cunoască.',
+    'Acum poți vorbi cu Lucy. De abia așteaptă să te cunoască.(Apasă pe ea pentru a începe conversația)',
   ];
 
   const lucyLines = [
@@ -36,9 +38,9 @@ export default function PaleoliticScreen({ navigation }) {
 
   const mirrorLines = [
     'Aceasta este oglinda. Privește cu atenție! Nu te recunoști?',
-    'Acum esti un Homo habilis. Primul fauritor de unelte de piatra',
-    'Apasă imaginea pentru a vedea o radiografie a craniului tău',
-    'Desi creierul e mic, ai destula dexteritate pentru a crea unelte de piatra prin lovirea a doua pietre.Apasa butonul Inchide pentru a continua.',
+    'Acum ești un Homo habilis. Primul făuritor de unelte de piatră.',
+    'Apasă imaginea pentru a vedea o radiografie a craniului tău.',
+    'Deși creierul e mic, ai destulă dexteritate pentru a crea unelte de piatră prin lovirea a două pietre. Apasă butonul Închide pentru a continua.',
   ];
 
   let dialogLines;
@@ -142,15 +144,19 @@ export default function PaleoliticScreen({ navigation }) {
           </View>
 
           <TouchableOpacity style={styles.characterContainer} onPress={handleLucyPress}>
-            <Image
-              source={
-                lucyAnimated
-                  ? require('../assets/Lucy/animated.gif')
-                  : require('../assets/Lucy/static.png')
-              }
-              style={styles.cavemanImage}
-              resizeMode="contain"
-            />
+            {lucyAnimated ? (
+              <ExpoImage
+                source={require('../assets/Lucy/animated.gif')}
+                style={styles.cavemanImage}
+                contentFit="contain"
+              />
+            ) : (
+              <Image
+                source={require('../assets/Lucy/static.png')}
+                style={styles.cavemanImage}
+                resizeMode="contain"
+              />
+            )}
           </TouchableOpacity>
         </>
       )}
@@ -191,14 +197,14 @@ const styles = StyleSheet.create({
   },
   mirrorContainer: {
     position: 'absolute',
-    top: 80,
-    left: 10,
-    width: 100,
-    height: 120,
+    top: vs(80),
+    left: s(10),
+    width: s(100),
+    height: vs(120),
     zIndex: 5,
   },
   mirrorImage: {
-    top: 70,
+    top: vs(70),
     width: '150%',
     height: '150%',
   },
@@ -211,8 +217,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: -45,
-    marginVertical: 100,
+    marginHorizontal: s(-45),
+    marginVertical: vs(100),
     height: '110%',
     width: '110%',
   },
@@ -220,90 +226,92 @@ const styles = StyleSheet.create({
     width: '63%',
     height: '63%',
     alignSelf: 'center',
-    marginTop: 65,
-    left: 20,
-    borderRadius: 10,
+    marginTop: vs(65),
+    left: s(20),
+    borderRadius: ms(10),
   },
   invisibleOverlayButton: {
     position: 'absolute',
     width: '63%',
     height: '63%',
-    top: 65,
-    left: 20,
+    top: vs(65),
+    left: s(20),
     zIndex: 10,
   },
   closeMirrorButton: {
     position: 'absolute',
-    top: 20,
-    right: 20,
+    top: vs(20),
+    right: s(20),
     backgroundColor: '#333',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 6,
+    paddingHorizontal: s(12),
+    paddingVertical: vs(6),
+    borderRadius: ms(6),
   },
   closeText: {
     color: '#fff8dc',
-    fontSize: 14,
+    fontSize: ms(14),
     fontWeight: 'bold',
   },
   leftSpeechContainer: {
     position: 'absolute',
-    left: 20,
-    bottom: 30,
+    left: s(20),
+    bottom: vs(30),
     alignItems: 'flex-start',
     zIndex: 10,
   },
   scientistImage: {
-    width: 220,
-    height: 220,
-    top: 30,
-    right: 30,
+    width: s(220),
+    height: vs(220),
+    top: vs(30),
+    right: s(30),
   },
   speechBubble: {
     backgroundColor: '#fff8dc',
     borderColor: '#333',
     borderWidth: 2,
-    borderRadius: 10,
-    padding: 10,
-    width: 340,
-    bottom: 30,
+    borderRadius: ms(10),
+    padding: ms(10),
+    width: s(340),
+    bottom: vs(30),
   },
   speechText: {
-    fontSize: 14,
+    fontSize: ms(14),
     fontStyle: 'italic',
     color: '#333',
   },
   nextButton: {
-    marginTop: 8,
+    marginTop: vs(8),
     alignSelf: 'flex-end',
-    paddingVertical: 6,
-    paddingHorizontal: 14,
+    paddingVertical: vs(6),
+    paddingHorizontal: s(14),
     backgroundColor: '#333',
-    borderRadius: 6,
+    borderRadius: ms(6),
   },
   yesButton: {
-    marginTop: 8,
+    marginTop: vs(8),
     alignSelf: 'flex-end',
-    paddingVertical: 6,
-    paddingHorizontal: 14,
+    paddingVertical: vs(6),
+    paddingHorizontal: s(14),
     backgroundColor: '#2e8b57',
-    borderRadius: 6,
+    borderRadius: ms(6),
   },
   nextText: {
     color: '#fff8dc',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: ms(14),
   },
   characterContainer: {
     position: 'absolute',
-    left: 60,
-    top: '35%',
-    transform: [{ translateY: -80 }],
+    left: s(60),
+    top: vs(200),
+    width: s(550),
+    height: vs(550),
     zIndex: 2,
+    backgroundColor: 'transparent',
   },
   cavemanImage: {
-    width: 550,
-    height: 550,
+    width: s(550),
+    height: vs(550),
   },
   overlayView: {
     position: 'absolute',
@@ -315,6 +323,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 99,
-    padding: 20,
+    padding: s(20),
   },
 });

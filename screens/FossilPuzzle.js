@@ -9,20 +9,21 @@ import {
   Text,
   Dimensions,
 } from 'react-native';
+import { s, vs, ms } from '../utils/scale';
 
 const { width, height } = Dimensions.get('window');
 
 export default function FossilPuzzle({ onComplete }) {
   const targets = {
-    head: { x: width / 2.35 - 60, y: 94 },
-    torso: { x: width / 3.5 - 70, y: 234 },
-    limbs: { x: width / 5.1 - 70, y: height - 465 },
+    head: { x: width / 2.35 - s(60), y: vs(90) },
+    torso: { x: width / 3.5 - s(70), y: vs(220) },
+    limbs: { x: width / 5.1 - s(70), y: height - vs(445) },
   };
 
   const initPos = {
-    head: useRef(new Animated.ValueXY({ x: 20, y: 20 })).current,
-    torso: useRef(new Animated.ValueXY({ x: width - 100, y: 25 })).current,
-    limbs: useRef(new Animated.ValueXY({ x: 30, y: height - 180 })).current,
+    head: useRef(new Animated.ValueXY({ x: s(20), y: vs(20) })).current,
+    torso: useRef(new Animated.ValueXY({ x: width - s(100), y: vs(25) })).current,
+    limbs: useRef(new Animated.ValueXY({ x: s(30), y: height - vs(180) })).current,
   };
 
   const [placed, setPlaced] = useState({
@@ -89,16 +90,16 @@ export default function FossilPuzzle({ onComplete }) {
     });
 
   const responders = {
-    head: createResponder('head', 140, 140),
-    torso: createResponder('torso', 270, 270),
-    limbs: createResponder('limbs', 340, 340),
+    head: createResponder('head', s(140), vs(140)),
+    torso: createResponder('torso', s(270), vs(270)),
+    limbs: createResponder('limbs', s(340), vs(340)),
   };
 
   const checkDrop = (name, pos) => {
     const target = targets[name];
     const dx = Math.abs(pos.x - target.x);
     const dy = Math.abs(pos.y - target.y);
-    return dx < 60 && dy < 60;
+    return dx < s(60) && dy < vs(60);
   };
 
   const allPlaced = Object.values(placed).every((p) => p);
@@ -173,28 +174,28 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   headImage: {
-    width: 140,
-    height: 140,
+    width: s(140),
+    height: vs(140),
   },
   torsoImage: {
-    width: 270,
-    height: 270,
+    width: s(260),
+    height: vs(260),
   },
   limbsImage: {
-    width: 340,
-    height: 340,
+    width: s(330),
+    height: vs(330),
   },
   doneButton: {
     position: 'absolute',
-    bottom: 40,
+    bottom: vs(40),
     backgroundColor: '#2e8b57',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 8,
+    paddingHorizontal: s(20),
+    paddingVertical: vs(10),
+    borderRadius: ms(8),
   },
   doneText: {
     color: '#fff8dc',
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: ms(18),
   },
 });

@@ -9,6 +9,8 @@ import {
   ScrollView,
   Animated,
 } from 'react-native';
+import { Image as ExpoImage } from 'expo-image';
+import { s, vs, ms } from '../utils/scale';
 
 export default function PaleoliticScreen({ navigation }) {
   const [currentLine, setCurrentLine] = useState(0);
@@ -52,19 +54,19 @@ export default function PaleoliticScreen({ navigation }) {
   }, [isLoading]);
 
   const professorLines = [
-    'Ai reusit sa calatoresi in timp cu succes! Insa vei avea nevoie de ajutor pentru a înțelege mai bine perioada Renasterii',
-    'Te vor ajuta chiar doi dintre cei mai buni  artisti ai vremii: Leonardo da Vinci și Michelangelo.',
-    'Acum poți vorbi cu Leonardo. De abia așteaptă să te cunoască.',
+    'Ai reușit să călătorești în timp cu succes! Însă vei avea nevoie de ajutor pentru a înțelege mai bine perioada Renașterii.',
+    'Te vor ajuta chiar doi dintre cei mai buni artiști ai vremii: Leonardo da Vinci și Michelangelo.',
+    'Acum poți vorbi cu Leonardo. De abia așteaptă să te cunoască.(Apasă pe el pentru a începe conversația)',
   ];
 
   const lucyLines = [
-    'Salut! Eu sunt Leonardo da Vinci! Sunt un spirit universalist, sunt pictor, sculptor, arhitect, om de stiinta si inventator.',
+    'Salut! Eu sunt Leonardo da Vinci! Sunt un spirit universalist, sunt pictor, sculptor, arhitect, om de știință și inventator.',
     'Am creat opere de artă celebre și am făcut descoperiri științifice importante. Studiile mele au fost foarte variate și am încercat să înțeleg lumea din jurul meu prin observație și logică.',
-    'Am fost destul de controversat în timpul vieții mele, insa am adus contributii semnificative in multe domenii. Am inteles ca in timpul tau multi ma considera un geniu.',
-    'Obisnuiesc sa desenez extrem de mult in creion. Am trecut multe dintre inventiile si studiile mele intr un caiet. Pe coperta se afla un desen: "omul vitruvian", studiu al proportiilor corpului uman. Vrei să-mi vezi caietul?',
-    'Acum este timpul sa ti continui calatoria. In continuare il vei vizita pe Michelangelo.Insa arati cam bizar. Iti trebuie o deghizare potrivită pentru a te integra mai bine în aceasta perioada.',
-    'De-a lungul vietii mele am devenit renumit pentru picturile mele. Am pictat scene biblice, dar si portrete. Poti lua infatisarea unuai din personajele pictate de mine. Apasa pe chevalet pentru a vedea personajele disponibile.',
-    'Acum totul este gata! Vrei să ti continui călătoria în timp?',
+    'Am fost destul de controversat în timpul vieții mele, însă am adus contribuții semnificative în multe domenii. Am înțeles că în timpul tău mulți mă consideră un geniu.',
+    'Obișnuiesc să desenez extrem de mult în creion. Am trecut multe dintre invențiile și studiile mele într-un caiet. Pe copertă se află un desen: "omul vitruvian", studiu al proporțiilor corpului uman. Vrei să-mi vezi caietul?',
+    'Acum este timpul să-ți continui călătoria. În continuare îl vei vizita pe Michelangelo. Însă arăți cam bizar. Îți trebuie o deghizare potrivită pentru a te integra mai bine în această perioadă.',
+    'De-a lungul vieții mele am devenit renumit pentru picturile mele. Am pictat scene biblice, dar și portrete. Poți lua înfățișarea unuia din personajele pictate de mine. Apasă pe chevalet pentru a vedea personajele disponibile.',
+    'Acum totul este gata! Vrei să-ți continui călătoria în timp?',
   ];
 
   let dialogLines = showMirrorView ? lucyLines : lucyAnimated ? lucyLines : professorLines;
@@ -136,15 +138,19 @@ export default function PaleoliticScreen({ navigation }) {
             onPress={() => setNotebookAnimated(true)}
             style={styles.notebookContainer}
           >
-            <Image
-              source={
-                notebookAnimated
-                  ? require('../assets/caiet.gif')
-                  : require('../assets/Da_Vinci_Vitruve_Luc_Viatour.jpg')
-              }
-              style={styles.notebookImage}
-              resizeMode="contain"
-            />
+            {notebookAnimated ? (
+              <ExpoImage
+                source={require('../assets/caiet.gif')}
+                style={styles.notebookImage}
+                contentFit="contain"
+              />
+            ) : (
+              <Image
+                source={require('../assets/Da_Vinci_Vitruve_Luc_Viatour.jpg')}
+                style={styles.notebookImage}
+                resizeMode="contain"
+              />
+            )}
           </TouchableOpacity>
 
           {!notebookAnimated && (
@@ -161,7 +167,7 @@ export default function PaleoliticScreen({ navigation }) {
         >
           <View style={styles.mirrorDialogue}>
             <Text style={styles.speechText}>
-               Gliseaza inspre dreapta pentru a vedea personajele disponibile. Selecteaza unul dintre ele, apoi apasa butonul inchide pentru a continua.
+               Glisează înspre dreapta pentru a vedea personajele disponibile. Selectează unul dintre ele, apoi apasă butonul închide pentru a continua.
             </Text>
           </View>
 
@@ -218,15 +224,19 @@ export default function PaleoliticScreen({ navigation }) {
           </View>
 
           <TouchableOpacity style={styles.characterContainer} onPress={handleLucyPress}>
-            <Image
-              source={
-                lucyAnimated
-                  ? require('../assets/leo move.gif')
-                  : require('../assets/Default_leonardo_da_vinci_standing_full_body_image_it_s_for_a_3_ef634360-9541-4723-aa21-cf4bebcb45bc_0.png')
-              }
-              style={styles.cavemanImage}
-              resizeMode="contain"
-            />
+            {lucyAnimated ? (
+              <ExpoImage
+                source={require('../assets/leo move.gif')}
+                style={styles.cavemanImage}
+                contentFit="contain"
+              />
+            ) : (
+              <Image
+                source={require('../assets/Default_leonardo_da_vinci_standing_full_body_image_it_s_for_a_3_ef634360-9541-4723-aa21-cf4bebcb45bc_0.png')}
+                style={styles.cavemanImage}
+                resizeMode="contain"
+              />
+            )}
           </TouchableOpacity>
         </>
       )}
@@ -275,146 +285,147 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   loadingText: {
-    color: 'white',
-    fontSize: 24,
+    color: '#fff8dc',
+    fontSize: s(28),
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   mirrorContainer: {
     position: 'absolute',
-    top: 80,
-    left: 10,
-    width: 100,
-    height: 120,
+    top: vs(80),
+    left: s(10),
+    width: s(100),
+    height: vs(120),
     zIndex: 5,
   },
   invisibleMirrorButton: {
     position: 'absolute',
     width: '200%',
     height: '200%',
-    top: 240,
+    top: vs(240),
   },
   mirrorFullScreen: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: -45,
-    marginVertical: 100,
+    marginHorizontal: s(-45),
+    marginVertical: vs(100),
     height: '110%',
     width: '110%',
   },
   closeMirrorButton: {
     position: 'absolute',
-    top: 20,
-    right: 20,
+    top: vs(20),
+    right: s(20),
     backgroundColor: '#333',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 6,
+    paddingHorizontal: s(12),
+    paddingVertical: vs(6),
+    borderRadius: ms(6),
   },
   closeNotebookButton: {
     position: 'absolute',
-    top: 60,
-    right: 20,
+    top: vs(60),
+    right: s(20),
     backgroundColor: '#333',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 6,
+    paddingHorizontal: s(12),
+    paddingVertical: vs(6),
+    borderRadius: ms(6),
     zIndex: 100,
   },
   closeText: {
     color: '#fff8dc',
-    fontSize: 14,
+    fontSize: ms(14),
     fontWeight: 'bold',
   },
   tapText: {
     color: '#fff8dc',
-    fontSize: 16,
-    marginTop: 20,
-    bottom: -60,
+    fontSize: ms(16),
+    marginTop: vs(20),
+    bottom: vs(-60),
   },
   notebookContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 40,
+    paddingTop: vs(40),
   },
 
   notebookImage: {
-    width: 400,
-    height: 400,
+    width: s(400),
+    height: vs(400),
   },
 
   mirrorDialogue: {
     position: 'absolute',
-    top: 630,
-    left: 60,
-    right: 20,
+    top: vs(540),
+    left: s(60),
+    right: s(20),
     backgroundColor: '#fff8dc',
     borderColor: '#333',
     borderWidth: 2,
-    borderRadius: 10,
-    padding: 10,
+    borderRadius: ms(10),
+    padding: s(10),
     zIndex: 10,
   },
   leftSpeechContainer: {
     position: 'absolute',
-    left: 20,
-    bottom: 30,
+    left: s(20),
+    bottom: vs(30),
     alignItems: 'flex-start',
     zIndex: 10,
   },
   scientistImage: {
-    width: 220,
-    height: 220,
-    top: 60,
-    right: 30,
+    width: s(220),
+    height: vs(220),
+    top: vs(60),
+    right: s(30),
   },
   speechBubble: {
     backgroundColor: '#fff8dc',
     borderColor: '#333',
     borderWidth: 2,
-    borderRadius: 10,
-    padding: 10,
-    width: 340,
-    bottom: 10,
+    borderRadius: ms(10),
+    padding: s(10),
+    width: s(340),
+    bottom: vs(10),
   },
   speechText: {
-    fontSize: 14,
+    fontSize: ms(14),
     fontStyle: 'italic',
     color: '#333',
   },
   nextButton: {
-    marginTop: 8,
+    marginTop: vs(8),
     alignSelf: 'flex-end',
-    paddingVertical: 6,
-    paddingHorizontal: 14,
+    paddingVertical: vs(6),
+    paddingHorizontal: s(14),
     backgroundColor: '#333',
-    borderRadius: 6,
+    borderRadius: ms(6),
   },
   yesButton: {
-    marginTop: 8,
+    marginTop: vs(8),
     alignSelf: 'flex-end',
-    paddingVertical: 6,
-    paddingHorizontal: 14,
+    paddingVertical: vs(6),
+    paddingHorizontal: s(14),
     backgroundColor: '#2e8b57',
-    borderRadius: 6,
+    borderRadius: ms(6),
   },
   nextText: {
     color: '#fff8dc',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: ms(14),
   },
   characterContainer: {
     position: 'absolute',
-    left: 60,
+    left: s(60),
     top: '35%',
-    transform: [{ translateY: -80 }],
+    transform: [{ translateY: vs(-80) }],
     zIndex: 2,
   },
   cavemanImage: {
-    width: 550,
-    height: 550,
-    right: 30,
-    bottom: 30,
+    width: s(550),
+    height: vs(550),
+    right: s(30),
+    bottom: vs(30),
   },
   overlayView: {
     position: 'absolute',
@@ -426,7 +437,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 99,
-    padding: 20,
+    padding: s(20),
   },
   characterSlider: {
     flexDirection: 'row',
@@ -436,47 +447,48 @@ const styles = StyleSheet.create({
     width: '300%',
   },
   characterCard: {
-    width: 300,
+    width: s(300),
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10,
-    marginHorizontal: 70,
+    padding: s(10),
+    marginHorizontal: s(60),
   },
   characterImage: {
-    width: 350,
-    height: 350,
-    marginBottom: 10,
-    top: 60,
-    right: -30,
+    width: s(350),
+    height: vs(350),
+    marginBottom: vs(10),
+    top: vs(60),
+    right: s(-30),
   },
   characterName: {
-    fontSize: 14,
+    fontSize: ms(14),
     fontWeight: 'bold',
     color: '#fff8dc',
-    marginBottom: 6,
+    marginBottom: vs(6),
     textAlign: 'center',
   },
   selectButton: {
     backgroundColor: '#333',
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: 6,
+    paddingVertical: vs(6),
+    paddingHorizontal: s(12),
+    borderRadius: ms(6),
   },
   selectButtonText: {
     color: '#fff8dc',
-    fontSize: 14,
+    fontSize: ms(14),
     fontWeight: 'bold',
   },
   selectionMessageContainer: {
     position: 'absolute',
-    bottom: 50,
+    bottom: vs(480),
+    left: s(50),
     backgroundColor: '#333',
-    padding: 12,
-    borderRadius: 8,
+    padding: s(12),
+    borderRadius: ms(8),
   },
   selectionMessage: {
     color: '#fff8dc',
-    fontSize: 16,
+    fontSize: ms(16),
     fontWeight: 'bold',
   },
 });

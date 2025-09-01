@@ -10,6 +10,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { s, vs, ms } from '../utils/scale';
 
 const toolImages = [
   require('../assets/tools/tool1.png'),
@@ -31,17 +32,17 @@ export default function VanatoareScreen() {
   const [hasLeftImprint, setHasLeftImprint] = useState(false);
 
   const lucyLines = [
-    'Suntem gata să începem vânătoarea! În cetele de vânatoare vei avea nevoie de unelte potrivite.',
+    'Suntem gata să începem vânătoarea! În cetele de vânătoare vei avea nevoie de unelte potrivite.',
     'Profesorul Chronos ți-a pregătit deja mai multe unelte pentru a te ajuta.',
     'Alege-o pe cea potrivită pentru perioada în care te afli. Ești pregătit?',
     'Acum ești pregătit! În apropiere se află o peșteră.',
     'Înainte de a pleca la vânătoare, ceilalți membri ai cetei au hotărât că ești unul de-al lor.',
     'Acum îți poți lăsa amprenta pe pereții peșterii. Vrei să mergi mai departe?',
-    'Vanatoarea a fost un succes! Ai reușit să te integrezi în comunitatea lor.',
-    'Insa din pacate, oamenii din paleolitic sunt nomanzi, iar acum trebuie să plece mai departe.',
-    'Calatoria noastra continua, iar tu trebuie să te pregătești pentru următoarea aventură.',
-    'Eu trebuie sa plec acum, dar tu iti poti continua călătoria înapoi în neolitic alaturi de un bun prieten al meu.',
-    'Vrei sa continui călătoria?',
+    'Vânătoarea a fost un succes! Ai reușit să te integrezi în comunitatea lor.',
+    'Însă din păcate, oamenii din paleolitic sunt nomazi, iar acum trebuie să plece mai departe.',
+    'Călătoria noastră continuă, iar tu trebuie să te pregătești pentru următoarea aventură.',
+    'Eu trebuie să plec acum, dar tu îți poți continua călătoria înapoi în neolitic alături de un bun prieten al meu.',
+    'Vrei să continui călătoria?',
   ];
 
   const correctIndex = 1;
@@ -114,7 +115,7 @@ export default function VanatoareScreen() {
             style={styles.fullScreenTouchable}
             onPress={() => setHasLeftImprint(true)}
           >
-            <Text style={styles.finalText}>Apasa pe ecran pentru a-ți lăsa amprenta!</Text>
+            <Text style={styles.finalText}>Apasă pe ecran pentru a-ți lăsa amprenta!</Text>
           </TouchableOpacity>
         ) : (
           <>
@@ -244,7 +245,7 @@ const styles = StyleSheet.create({
   },
   introText: {
     color: '#fff8dc',
-    fontSize: 28,
+    fontSize: ms(28),
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -254,41 +255,41 @@ const styles = StyleSheet.create({
   },
   dialogContainer: {
     position: 'absolute',
-    bottom: 40,
-    right: 30,
+    bottom: vs(40),
+    right: s(30),
     flexDirection: 'column',
     alignItems: 'flex-end',
   },
   lucySmall: {
-    width: 400,
-    height: 400,
-    left: 140,
-    top: 160,
+    width: s(400),
+    height: vs(400),
+    left: s(140),
+    top: vs(160),
   },
   speechBubble: {
     backgroundColor: '#fff8dc',
     borderColor: '#333',
     borderWidth: 2,
-    borderRadius: 10,
-    padding: 10,
-    maxWidth: 330,
+    borderRadius: ms(10),
+    padding: ms(10),
+    maxWidth: s(330),
     alignSelf: 'flex-end',
-    marginBottom: 10,
-    paddingBottom: 50,
+    marginBottom: vs(10),
+    paddingBottom: vs(50),
   },
   speechText: {
-    fontSize: 14,
+    fontSize: ms(14),
     fontStyle: 'italic',
     color: '#333',
   },
   nextButton: {
     position: 'absolute',
-    bottom: 60,
-    right: 40,
+    bottom: vs(60),
+    right: s(40),
     backgroundColor: '#333',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    paddingVertical: vs(10),
+    paddingHorizontal: s(20),
+    borderRadius: ms(8),
   },
   greenButton: {
     backgroundColor: 'green',
@@ -296,7 +297,7 @@ const styles = StyleSheet.create({
   nextButtonText: {
     color: '#fff8dc',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: ms(16),
   },
   miniGameOverlay: {
     position: 'absolute',
@@ -307,27 +308,27 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 248, 220, 0.9)',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    padding: s(20),
     zIndex: 10,
   },
   gameTitle: {
-    fontSize: 22,
+    fontSize: ms(22),
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: vs(20),
   },
   imagesContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    gap: 10,
+    gap: s(10),
   },
   toolImage: {
-    width: 150,
-    height: 150,
-    margin: 10,
+    width: s(150),
+    height: vs(150),
+    margin: s(10),
     borderWidth: 2,
     borderColor: '#ccc',
-    borderRadius: 10,
+    borderRadius: ms(10),
     resizeMode: 'contain',
   },
   selectedTool: {
@@ -335,15 +336,15 @@ const styles = StyleSheet.create({
     borderWidth: 4,
   },
   doneButton: {
-    marginTop: 30,
+    marginTop: vs(30),
     backgroundColor: 'green',
-    padding: 15,
-    borderRadius: 10,
+    padding: s(15),
+    borderRadius: ms(10),
   },
   doneButtonText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: ms(16),
   },
   finalScreen: {
     flex: 1,
@@ -352,12 +353,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   finalText: {
-    fontSize: 24,
+    fontSize: ms(24),
     color: '#333',
     fontWeight: 'bold',
     backgroundColor: 'rgba(255, 248, 220, 0.9)',
-    padding: 20,
-    borderRadius: 10,
+    padding: s(20),
+    borderRadius: ms(10),
   },
   fullScreenTouchable: {
     position: 'absolute',

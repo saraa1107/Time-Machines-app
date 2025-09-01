@@ -10,6 +10,7 @@ import {
   ScrollView,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { s, vs, ms } from '../utils/scale';
 
 const tools = [
   { image: require('../assets/zeppelin.jpg'), name: 'Am avut multã multumire sufleteascã, am scris prin altã carte postalã că un glont a trecut prin urechea mea stângã. Mi-a trecut rana aproape pe deplin. Sunt multumit că copiii sunt cu-minti si ascultã de povetele mele. Ce faceti cu zepelinele? Aici stăm toatã ziua sub focurile artileriei. Vă särut pe toti, Alexandru.' },
@@ -41,16 +42,16 @@ export default function VanatoareScreen() {
   );
 
   const lucyLines = [
-    'Datorita Revolutiei Industriale, au aparut arme mai performante. Inpotriva acestor arme care trageau de la distanta s-a trecut la lupta in transee.',
-    'Viata era extrem de grea in transee, asa ca noi, soldatii, scriam scrisori sau in jurnale de razboi.',
-    'Multe dintre aceste arme nou aparute apar in memoriile acestora. Crezi ca poti sa le gasesti?',
-    'Noile arme aveau avantajul ca puteau fi produse in masa intr-un timp scurt.',
-    'In lipsa barbatilor, plecati la razboi, femeile au fost nevoite sa preia roluri mai active in societate si sa lucreze in fabrici si uzine.',
-    'Vrei sa vezi fotografii si articole de ziar care demonstreaza acest lucru?',
-    'Acest razboi a cauzat multe victime atat printre soldati, care mureau ori in lupta ori din cauza conditiilor precare din transee, cat si printre civili. ',
-    'A fost o incercare grea pentru noi toti si pe frontul propriu-zis si pe frontul de acasa. Sunetul grenadelor si al artileriei s-a auzit pretutindeni.',
-    'Se pare ca trebuie sa pleci. Masina timpului a ramas fara combustibil, iar tu sigur nu vrei sa ramai in aceste tipuri grele.',
-    'Esti pregatit sa te intorci in Profesorul Chronos?',
+    'Datorită Revoluției Industriale, au apărut arme mai performante. În potriva acestor arme care trageau de la distanță s-a trecut la lupta în tranșee.',
+    'Viața era extrem de grea în tranșee, așa că noi, soldații, scriam scrisori sau în jurnale de război.',
+    'Multe dintre aceste arme nou apărute apar în memoriile acestora. Crezi că poți să le găsești?',
+    'Noile arme aveau avantajul că puteau fi produse în masă într-un timp scurt.',
+    'În lipsa bărbaților, plecați la război, femeile au fost nevoite să preia roluri mai active în societate și să lucreze în fabrici și uzine.',
+    'Vrei să vezi fotografii și articole de ziar care demonstrează acest lucru?',
+    'Acest război a cauzat multe victime atât printre soldați, care mureau ori în luptă ori din cauza condițiilor precare din tranșee, cât și printre civili.',
+    'A fost o încercare grea pentru noi toți și pe frontul propriu-zis și pe frontul de acasă. Sunetul grenadelor și al artileriei s-a auzit pretutindeni.',
+    'Se pare că trebuie să pleci. Mașina timpului a rămas fără combustibil, iar tu sigur nu vrei să rămâi în aceste timpuri grele.',
+    'Ești pregătit să te întorci la Profesorul Chronos?',
   ];
 
   useEffect(() => {
@@ -125,7 +126,7 @@ export default function VanatoareScreen() {
         style={styles.finalScreen}
       >
         <Text style={styles.finalText}>
-          Apasa pe ecran pentru a vedea prima pagina a unui ziar!
+          Apasă pe ecran pentru a vedea prima pagină a unui ziar!
         </Text> 
         {!hasLeftImprint ? (
           <TouchableOpacity
@@ -211,7 +212,7 @@ export default function VanatoareScreen() {
 
       {showMiniGame && (
         <View style={styles.miniGameOverlay}>
-          <Text style={styles.gameTitle}>Gaseste armele din imagini in memoriile soldatilor.</Text>
+          <Text style={styles.gameTitle}>Găsește armele din imagini în memoriile soldaților.</Text>
 
           <ScrollView
             style={styles.scrollContainer}
@@ -281,7 +282,7 @@ const styles = StyleSheet.create({
   },
   introText: {
     color: '#fff8dc',
-    fontSize: 28,
+    fontSize: ms(28),
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -291,40 +292,40 @@ const styles = StyleSheet.create({
   },
   dialogContainer: {
     position: 'absolute',
-    bottom: 40,
-    right: 30,
+    bottom: vs(40),
+    right: s(30),
     flexDirection: 'column',
     alignItems: 'flex-end',
   },
   lucySmall: {
-    width: 300,
-    height: 300,
-    top: 20,
+    width: s(300),
+    height: s(300),
+    top: vs(20),
   },
   speechBubble: {
     backgroundColor: '#fff8dc',
     borderColor: '#333',
     borderWidth: 2,
-    borderRadius: 10,
-    padding: 10,
-    maxWidth: 330,
+    borderRadius: ms(10),
+    padding: s(10),
+    maxWidth: s(330),
     alignSelf: 'flex-end',
-    marginBottom: 10,
-    paddingBottom: 50,
+    marginBottom: vs(10),
+    paddingBottom: vs(50),
   },
   speechText: {
-    fontSize: 14,
+    fontSize: ms(14),
     fontStyle: 'italic',
     color: '#333',
   },
   nextButton: {
     position: 'absolute',
-    bottom: 60,
-    right: 40,
+    bottom: vs(60),
+    right: s(40),
     backgroundColor: '#333',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    paddingVertical: vs(10),
+    paddingHorizontal: s(20),
+    borderRadius: ms(8),
   },
   greenButton: {
     backgroundColor: 'green',
@@ -332,7 +333,7 @@ const styles = StyleSheet.create({
   nextButtonText: {
     color: '#fff8dc',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: ms(16),
   },
   miniGameOverlay: {
     position: 'absolute',
@@ -343,53 +344,53 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 248, 220, 0.95)',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 100,
+    padding: s(100),
     zIndex: 10,
   },
   gameTitle: {
-    fontSize: 20,
+    fontSize: ms(20),
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: vs(20),
   },
   scrollContainer: {
     width: '160%',
   },
   scrollContent: {
     alignItems: 'center',
-    paddingBottom: 40,
+    paddingBottom: vs(40),
   },
   rowContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 10,
+    marginVertical: vs(10),
     flexWrap: 'wrap',
   },
   toolImageContainer: {
-    marginHorizontal: 10,
+    marginHorizontal: s(10),
     borderWidth: 2,
     borderColor: '#ccc',
-    borderRadius: 10,
-    padding: 10,
-    width: 250,
-    height: 200,
+    borderRadius: ms(10),
+    padding: s(10),
+    width: s(250),
+    height: vs(200),
   },
   toolImage: {
-    width: 200,
-    height: 200,
+    width: s(200),
+    height: vs(200),
     resizeMode: 'contain',
   },
   nameBox: {
-    marginHorizontal: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 15,
+    marginHorizontal: s(10),
+    paddingVertical: vs(10),
+    paddingHorizontal: s(15),
     borderWidth: 2,
     borderColor: '#ccc',
-    borderRadius: 8,
+    borderRadius: ms(8),
     backgroundColor: 'white',
   },
   nameText: {
-    fontSize: 16,
+    fontSize: ms(16),
     fontWeight: '500',
   },
   selectedTool: {
@@ -402,15 +403,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#c8f7c5',
   },
   doneButton: {
-    marginTop: 30,
+    marginTop: vs(30),
     backgroundColor: 'green',
-    padding: 15,
-    borderRadius: 10,
+    padding: vs(15),
+    borderRadius: ms(10),
   },
   doneButtonText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: ms(16),
   },
   finalScreen: {
     flex: 1,
@@ -419,12 +420,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   finalText: {
-    fontSize: 24,
+    fontSize: ms(24),
     color: '#333',
     fontWeight: 'bold',
     backgroundColor: 'rgba(255, 248, 220, 0.9)',
-    padding: 20,
-    borderRadius: 10,
+    padding: s(20),
+    borderRadius: ms(10),
   },
   fullScreenTouchable: {
     position: 'absolute',
@@ -436,7 +437,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imprintImage: {
-    width: 500,
-    height: 500,
+    width: s(500),
+    height: s(500),
   },
 });
